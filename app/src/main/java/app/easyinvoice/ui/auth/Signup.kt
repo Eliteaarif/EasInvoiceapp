@@ -14,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -183,11 +184,12 @@ fun SignupScreen(viewModel: AuthViewModel, navController: NavHostController) {
                 width = Dimension.fillToConstraints
             }
         ) {
-            Text(text = stringResource(id = R.string.signup), style = MaterialTheme.typography.titleMedium)
+            Text(text = stringResource(id = R.string.signup),
+                style = MaterialTheme.typography.titleMedium)
         }
 
 
-        Text(
+        Text( text = stringResource(id = R.string.already_have_account),
             modifier = Modifier
                 .constrainAs(refTextSignup) {
                     top.linkTo(refButtonSignup.bottom, spacing.medium)
@@ -200,10 +202,10 @@ fun SignupScreen(viewModel: AuthViewModel, navController: NavHostController) {
                     }
                 }
                 .bringIntoViewRequester(bringIntoViewRequester),
-            text = stringResource(id = R.string.already_have_account),
+
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.primary
         )
 
         signupFlow.value?.let {
